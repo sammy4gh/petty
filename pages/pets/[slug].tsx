@@ -62,8 +62,8 @@ const imgHeight = featuredImage.fields.file.details.image.height || 400
             {/* {banner} */}
             <Image 
             src={'https:' + featuredImage.fields.file.url}
-                    width={300}
-                    height={200}
+                    width={imgWidth}
+                    height={imgHeight}
             />
                 <div className=" -rotate-1 flex justify-start text-2xl font-bold    relative -top-10 -left-2 ">
                     <h2 className="bg-gray-50 p-4 shadow-md">{title}</h2>
