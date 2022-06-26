@@ -45,10 +45,16 @@ export const getStaticProps = async ({ params }: { params: { slug: string } }) =
     }
 }
 
+
+
 const PetDetails = ({ pet }: PetDetailsPropsType): JSX.Element => {
 
     const { title, featuredImage, characteristics, thumbnail, age, bio }: IPetFields = pet.fields
 
+    //@ts-ignore
+const imgWidth =  featuredImage.fields.file.details.image.width || 600
+//@ts-ignore
+const imgHeight = featuredImage.fields.file.details.image.height || 400
     return (
      <div className="text-xl">
         <div>
