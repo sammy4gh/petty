@@ -23,7 +23,9 @@ export const getStaticProps : GetStaticProps =async () => {
 
 return {
   props : {
-    pets : res.items
+    pets : res.items,
+    revalidate: 1
+
   }
 }
 
