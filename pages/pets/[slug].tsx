@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -49,6 +49,8 @@ export const getStaticProps = async ({ params }: { params: { slug: string } }) =
 
 
 const PetDetails = ({ pet }: PetDetailsPropsType): JSX.Element => {
+
+    if(!pet) return <div>Loading...</div>
 
     const { title, featuredImage, characteristics, thumbnail, age, bio }: IPetFields = pet.fields
 
