@@ -10,7 +10,7 @@ const Layout = ({children}:LayoutPropsType): JSX.Element => {
     return (
 
         <div className={"min-h-screen flex flex-col justify-between bg-orange-400 font-roboto"}>
-        <header className={"text-center text-4xl text-gray-800  "} >
+        <header className={"text-center text-4xl text-gray-800 m-4   "} >
             <Link href={"/"} className={''}>
                 <a href="">
                     <h1 >
