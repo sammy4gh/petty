@@ -42,7 +42,7 @@ export const getStaticProps = async ({ params }: { params: { slug: string } }) =
 
     return {
         props: { pet: items[0] },
-        revalidate : 1
+        revalidate : 1 
     }
 }
 
