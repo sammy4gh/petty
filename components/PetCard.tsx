@@ -1,6 +1,6 @@
 import React from 'react'
 import Contentful,{ ContentType } from "contentful";
-import { IPetFields  } from ".././@types/generated";
+import { IPetFields  } from ".././@types/generated/contentful";
 import Link from 'next/link';
 import Image from 'next/image';
 
