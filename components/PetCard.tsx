@@ -22,7 +22,7 @@ const imgHeight = thumbnail.fields.file.details.image.height || 200
   {/* image - thumbnail */}
   { <Image src={'https:' + thumbnail.fields.file.url} 
     width={imgWidth}
-          height={ imgHeight }
+          height={ 220 }
           className={"m-0"}
   />}
  </div>
