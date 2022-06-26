@@ -1,19 +1,23 @@
 import { INSPECT_MAX_BYTES } from "buffer";
 import { createClient } from "contentful";
 import Image from "next/image";
-import { IPetFields } from "../../@types/generated";
+import { IPetFields, IPet } from "../../@types/generated/contentful";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+
+
+
 type PetDetailsPropsType = {
-    pet: IPetFields
+    pet: IPet
 }
 
 const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY
+    space: process.env.CONTENTFUL_SPACE_ID || '',
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY || ""
 
 })
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
     const res = await client.getEntries<IPetFields>({
         content_type: "pet"
     })
@@ -51,8 +55,8 @@ const PetDetails = ({ pet }: PetDetailsPropsType): JSX.Element => {
             {/* {banner} */}
             <Image 
             src={'https:' + featuredImage.fields.file.url}
-                    width={featuredImage.fields.file.details.image.width}
-                    height={featuredImage.fields.file.details.image.height}
+                    width={300}
+                    height={200}
             />
                 <div className=" -rotate-1 flex justify-start text-2xl font-bold    relative -top-10 -left-2 ">
                     <h2 className="bg-gray-50 p-4 shadow-md">{title}</h2>

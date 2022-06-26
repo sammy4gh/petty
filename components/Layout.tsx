@@ -21,7 +21,7 @@ const Layout = ({children}:LayoutPropsType): JSX.Element => {
                 </a>
             </Link>
         </header>
-        <div className="px-40">
+        <div className="md:px-40 px-10">
             {children}
         </div>
         <footer className={"text-center bg-gray-800 py-10 text-gray-50"}>

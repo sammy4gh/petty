@@ -1,25 +1,30 @@
 import React from 'react'
 import Contentful,{ ContentType } from "contentful";
-import { IPetFields  } from ".././@types/generated/contentful";
+import { IPetFields, IPet  } from ".././@types/generated/contentful";
 import Link from 'next/link';
 import Image from 'next/image';
 
 type PetCardPropsType = {
-  pet: IPetFields
+  pet: IPet
 }
 const PetCard = ({pet} : PetCardPropsType): JSX.Element => {
 
   const {title, slug, age, thumbnail} = pet.fields
+  //@ts-ignore
+const imgWidth =  thumbnail.fields.file.details.image.width || 300
+//@ts-ignore
+const imgHeight = thumbnail.fields.file.details.image.height || 200
+
 
   return (
  <div className="-rotate-1">
  <div className={"m-0 p-0"}>
   {/* image - thumbnail */}
-  <Image src={'https:' + thumbnail.fields.file.url} 
-    width={thumbnail.fields.file.details.image.width}
-          height={thumbnail.fields.file.details.image.height}
+  { <Image src={'https:' + thumbnail.fields.file.url} 
+    width={imgHeight}
+          height={ imgWidth }
           className={"m-0"}
-  />
+  />}
  </div>
  {/* content */}
  <div className={"bg-gray-50 m-0  relative -top-10 -left-2 shadow-md "}>
@@ -37,5 +42,6 @@ const PetCard = ({pet} : PetCardPropsType): JSX.Element => {
  </div>
   )
 }
+
 
 export default PetCard;
