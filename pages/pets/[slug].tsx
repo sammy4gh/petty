@@ -28,6 +28,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
     })
 
+ 
+
     return {
         paths,
         fallback: true
@@ -39,6 +41,15 @@ export const getStaticProps = async ({ params }: { params: { slug: string } }) =
         content_type: "pet",
         'fields.slug': params.slug
     })
+
+    if(!items.length){
+        return{
+            redirect{
+                destination : "/",
+                permanent : false
+            }
+        }
+    }
 
     return {
         props: { pet: items[0] },
