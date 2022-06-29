@@ -6,6 +6,7 @@ import { createClient } from "contentful";
 import  PetCard  from "../components/PetCard";
 import { Key } from 'react';
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import Script from 'next/script'
 
 
 
@@ -35,6 +36,20 @@ const Pets = ({pets}:{pets: IPetFields}) : JSX.Element=> {
   
   return (
 <div className={'grid grid-cols-1 sm:grid-cols-2 gap-8  text-xl'}>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-Y816PDZZF7"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-Y816PDZZF7');
+        `}
+      </Script>
  { 
  //@ts-ignore
   pets.map((pet: IPet)=>(
