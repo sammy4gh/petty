@@ -36,7 +36,6 @@ const Pets = ({pets}:{pets: IPetFields}) : JSX.Element=> {
   
   return (
 <div className={'grid grid-cols-1 sm:grid-cols-2 gap-8  text-xl'}>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-Y816PDZZF7"
         strategy="afterInteractive"
